@@ -17,7 +17,6 @@ Contributors:
 **********************************************************************/
 package org.datanucleus.store.rdbms;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -25,12 +24,12 @@ import java.util.Set;
 
 import org.datanucleus.ExecutionContext;
 import org.datanucleus.exceptions.NucleusOptimisticException;
-import org.datanucleus.metadata.AbstractClassMetaData;
-import org.datanucleus.state.ObjectProvider;
-import org.datanucleus.store.rdbms.table.ClassTable;
 import org.datanucleus.flush.FlushNonReferential;
 import org.datanucleus.flush.FlushOrdered;
 import org.datanucleus.flush.OperationQueue;
+import org.datanucleus.metadata.AbstractClassMetaData;
+import org.datanucleus.state.ObjectProvider;
+import org.datanucleus.store.rdbms.table.ClassTable;
 
 /**
  * Flush process extending the core "ordered flush" to catch particular situations present
@@ -39,10 +38,10 @@ import org.datanucleus.flush.OperationQueue;
 public class FlushReferential extends FlushOrdered
 {
     /* (non-Javadoc)
-     * @see org.datanucleus.FlushOrdered#execute(org.datanucleus.ExecutionContext, java.util.Collection, java.util.Collection, org.datanucleus.flush.OperationQueue)
+     * @see org.datanucleus.FlushOrdered#execute(org.datanucleus.ExecutionContext, java.util.List, java.util.List, org.datanucleus.flush.OperationQueue)
      */
     @Override
-    public List<NucleusOptimisticException> execute(ExecutionContext ec, Collection<ObjectProvider> primaryOPs, Collection<ObjectProvider> secondaryOPs, OperationQueue opQueue)
+    public List<NucleusOptimisticException> execute(ExecutionContext ec, List<ObjectProvider> primaryOPs, List<ObjectProvider> secondaryOPs, OperationQueue opQueue)
     {
         List<NucleusOptimisticException> flushExcps = null;
 

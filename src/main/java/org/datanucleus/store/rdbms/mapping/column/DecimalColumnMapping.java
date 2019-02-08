@@ -226,14 +226,7 @@ public class DecimalColumnMapping extends AbstractColumnMapping
         {
             if (value == null)
             {
-                if (useDefaultWhenNull())
-                {
-                    ps.setInt(param, Integer.valueOf(column.getDefaultValue().toString()).intValue());
-                }
-                else
-                {
-                    ps.setNull(param, getJDBCType());
-                }
+                ps.setNull(param, getJDBCType());
             }
             else
             {
